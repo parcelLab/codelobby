@@ -7,7 +7,7 @@ jobs:
 
   deploy:
     needs: set-repo-name
-    uses: parcelLab/ci/.github/workflows/kubernetes.yaml@v8.2.6
+    uses: parcelLab/ci/.github/workflows/kubernetes.yaml@v8
     with:
       deploymentRepoPath: .chart/${{ github.event.deployment.payload.env }}
       deploymentRepoValuesPath: .chart/${{ github.event.deployment.payload.env }}/values.yaml
@@ -19,8 +19,6 @@ jobs:
       slackChannelTest: D05FBHC5SQL
       registryHostname: 212550490986.dkr.ecr.eu-central-1.amazonaws.com
       enableContainerScan: false
-      repository_kind: "ecr"
-      chartInAppRepo: true
     secrets:
       npmGithubReadToken: ${{ secrets.PACKAGES_READ_TOKEN }}
       repoAccessToken: ${{ secrets.REPO_ACCESS_TOKEN }}

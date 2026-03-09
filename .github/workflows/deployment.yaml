@@ -24,11 +24,10 @@ jobs:
 
   from-dispatch:
     needs: set-repo-name
-    uses: parcelLab/ci/.github/workflows/deployment.yaml@v8.2.6
+    uses: parcelLab/ci/.github/workflows/deployment.yaml@v8
     with:
       appName: ${{ needs.set-repo-name.outputs.repo_name }}
       author: ${{ github.event.inputs.author }}
-      chartInAppRepo: true
       description: ${{ github.event.inputs.description }}
       env: ${{ github.event.inputs.env }}
       namespace: infra
