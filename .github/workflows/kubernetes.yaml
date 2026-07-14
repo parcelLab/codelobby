@@ -7,7 +7,7 @@ jobs:
 
   deploy:
     needs: set-repo-name
-    uses: parcelLab/ci/.github/workflows/kubernetes.yaml@v8
+    uses: parcelLab/ci/.github/workflows/kubernetes.yaml@v9
     with:
       deploymentRepoPath: .chart/${{ github.event.deployment.payload.env }}
       deploymentRepoValuesPath: .chart/${{ github.event.deployment.payload.env }}/values.yaml
@@ -24,6 +24,3 @@ jobs:
       repoAccessToken: ${{ secrets.REPO_ACCESS_TOKEN }}
       sentryAuthToken: ${{ secrets.SENTRY_AUTH_TOKEN }}
       slackBotToken: ${{ secrets.SLACK_BOT_TOKEN }}
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
